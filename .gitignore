@@ -1,0 +1,5 @@
+schema.sql
+*.~
+.*~
+.DS_STORE
+node_modules/

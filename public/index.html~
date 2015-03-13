@@ -1,0 +1,14 @@
+<!doctype html>
+
+<html>
+<head>
+    <script type="text/javascript" src="javascripts/angular.min.js"></script>
+    <link href="stylesheets/style.css" />
+</head>
+<body ng-app="Whatever">
+
+<h1> Hellowowrlds! </h1>
+
+</body>
+
+</html>
