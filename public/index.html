@@ -2,12 +2,17 @@
 
 <html>
 <head>
-    <script type="text/javascript" src="javascripts/angular.min.js"></script>
+    <script type="text/javascript" src="javascripts/vendor/angular.min.js"></script>
+    <script type="text/javascript" src="javascripts/app.js"></script>
     <link href="stylesheets/style.css" />
 </head>
-<body ng-app="Whatever">
+<body ng-app="apeapp">
 
 <h1> Hellowowrlds! </h1>
+
+<div ng-controller="homeController">
+    Time: {{ time }}
+</div>
 
 </body>
 
