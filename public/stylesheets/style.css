@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+    font-family: 'Josefin Slab', serif;
+}
