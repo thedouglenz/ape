@@ -4,7 +4,7 @@
 
 var sqlz = require('../config/sequelize');
 
-var Project = sqlz.db.define('Project', {
+var Project = sqlz.db.define('project', {
     id: {
         type: sqlz.Sequelize.INTEGER,
         primaryKey: true,

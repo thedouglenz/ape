@@ -9,14 +9,4 @@ router.get('/', function(req, res, next) {
   });
 });
 
-// The fuck api
-router.get('/exampleJSON', function(req, res, next) {
-  var obj = {
-    what: "is",
-    this: "all",
-    about: "anyway"
-  }
-  res.send(JSON.stringify(obj));
-});
-
 module.exports = router;
