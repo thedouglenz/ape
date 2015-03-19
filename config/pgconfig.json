@@ -1,8 +1,8 @@
 {
-    'url': 'postgres://test_ape:test_ape@localhost:5432/test_ape',
-    'host': 'localhost',
-    'port': 5432,
-    'user': 'test_ape',
-    'pass': 'test_ape',
-    'name': 'test_ape'
+    "url": "postgres://test_ape:test_ape@localhost:5432/test_ape",
+    "host": "localhost",
+    "port": 5432,
+    "user": "test_ape",
+    "pass": "test_ape",
+    "name": "test_ape"
 }

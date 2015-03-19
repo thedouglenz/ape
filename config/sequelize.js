@@ -4,7 +4,7 @@
  */
 
 var Sequelize = require('sequelize');
-var pgconfig = require('./pgconfig');
+var pgconfig = require('./pgconfig.json');
 
 var sequelize = new Sequelize(pgconfig['url'], {
     dialect: 'postgres',
