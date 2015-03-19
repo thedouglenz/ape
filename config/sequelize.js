@@ -13,5 +13,5 @@ var sequelize = new Sequelize(pgconfig['url'], {
 
 module.exports = {
     db: sequelize,
-    Sequelize: Sequelize,
-}
+    Sequelize: Sequelize
+};

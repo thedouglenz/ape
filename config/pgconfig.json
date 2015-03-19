@@ -1,5 +1,5 @@
 {
-    'url': 'postgres://test_ape:test_ape@locahost:5432/test_ape',
+    'url': 'postgres://test_ape:test_ape@localhost:5432/test_ape',
     'host': 'localhost',
     'port': 5432,
     'user': 'test_ape',
