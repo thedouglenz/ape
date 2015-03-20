@@ -1,4 +1,6 @@
 /*
+ * Sequelize configuration and setup
+ *
  * Bring in the sequelize library
  * create a new db connection object
  */

@@ -1,8 +1,9 @@
-
 /*
  * API routes
  *
- * /api
+ * /api/...
+ *
+ * This is where you generate a RESTful API
  *
  */
 

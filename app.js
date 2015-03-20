@@ -1,3 +1,13 @@
+/*
+ * APE Stack
+ *
+ * app.js
+ *
+ * server side excitement starts here
+ *
+ * Douglas Lenz 2015
+ *
+ */
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');

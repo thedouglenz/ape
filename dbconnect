@@ -1,2 +1,3 @@
 #!/bin/bash
+# A quick script to connect to the test_ape database as test_ape
 psql -U test_ape test_ape

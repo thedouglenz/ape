@@ -1,3 +1,7 @@
+/*
+ * The router that handles /users/...
+ */
+
 var express = require('express');
 var router = express.Router();
 

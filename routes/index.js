@@ -1,3 +1,7 @@
+/*
+ * The router that handles the home page
+ */
+
 var express = require('express');
 var router = express.Router();
 
