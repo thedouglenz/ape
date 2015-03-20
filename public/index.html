@@ -16,6 +16,9 @@
     <!-- purecss.io -->
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
     <!-- your own stylesheets -->
     <link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
     <link href="stylesheets/style.css" rel="stylesheet" type="text/css"/>
@@ -25,12 +28,17 @@
 <header>
     <div class="pure-g">
         <div class="pure-u-3-4">
-            <h1>Woohoo APE!</h1>
+            <h1><span style="font-size:2em">A</span>ngularJS <span style="font-size:2em">P</span>ostgreSQL <span style="font-size:2em">E</span>xpress</h1>
+            <div class="nav">
+                <a href="#/projects"><i class="fa fa-cogs"></i> Projects</a>
+            </div>
         </div>
     </div>
 </header>
+
 <main ng-view>
 </main>
+
 </body>
 
 </html>
