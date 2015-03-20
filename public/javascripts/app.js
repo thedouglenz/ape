@@ -2,19 +2,16 @@
  * Where the angular excitement begins ...
  */
 
-var app = angular.module("apeapp", []);
+angular.module("apeApp", ['ngRoute', 'apeAppControllers', 'apeAppAPIProvider'])
 
-/*
- * app controllers TODO: Move to a different file someday
- */
-
-app.controller("homeController", function($scope) {
-    $scope.time = Date();
-    var updateTime = function() {
-        $scope.time = Date();
-    }
-    setInterval(function() {
-        $scope.$apply(updateTime);
-    }, 1000);
-    updateTime();
-});
+    .config(['$routeProvider',
+        function($routeProvider) {
+            $routeProvider.when('/', {
+                templateUrl: '../partials/home.html',
+                controller: 'homeController'
+            })
+            .when('/projects', {
+                templateUrl: '../partials/projects.html',
+                controller: 'projectsController'
+            });
+        }]);
