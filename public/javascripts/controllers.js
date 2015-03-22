@@ -15,8 +15,26 @@ angular.module('apeAppControllers', [])
         updateTime();
     })
 
-    .controller("projectsController", function($scope, api) {
-        api.projects.query(function(data) {
-            $scope.projects = data;
-        });
+    .controller("projectsController", function($scope, $http, api) {
+	var refreshProjects = function() {
+	    console.log("Refreshing projects...");
+	    api.projects.query(function(data) {
+                $scope.projects = data;
+            });
+	}; refreshProjects();
+
+	$scope.addProject = function() {
+	    // Prepare the POST information
+	    var projectPostEndpoint = "/api/projects";
+	    var data = {
+		title : $scope.project_state.title,
+		description: $scope.project_state.description
+	    };
+
+	    // Clear the project_state object (and thus the form fields)
+	    $scope.project_state = {};
+
+	    // Perform the POST
+	    $http.post(projectPostEndpoint, data).success(refreshProjects);
+	};
     });

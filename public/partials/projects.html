@@ -7,4 +7,17 @@
             <p>{{ project.description }}</p>
         </div>
     </div>
+    <div class="pure-u-3-4">
+	<div id="projects-form">
+	    <form novalidate class="pure-form pure-form-stacked" method="POST">
+		<fieldset>
+		    <legend> Add a project </legend>
+		    <input type="text" placeholder="Title" ng-model="project_state.title" required>
+		    <textarea placeholder="Description" ng-model="project_state.description" required></textarea>
+		    <button type="submit" class="pure-button pure-button-primary"
+			ng-click="addProject()"><i class="fa fa-plus"></i> Add project</button>
+		</fieldset>
+	    </form>
+	</div>
+    </div>
 </div>
