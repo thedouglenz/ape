@@ -4,7 +4,7 @@
  */
 angular.module('apeAppControllers', [])
 
-    .controller("homeController", function($scope) {
+    .controller("homeController", function($scope, api) {
         $scope.time = Date();
         var updateTime = function() {
             $scope.time = Date();
@@ -13,6 +13,15 @@ angular.module('apeAppControllers', [])
             $scope.$apply(updateTime);
         }, 1000);
         updateTime();
+
+	// Get the current user
+	var currentUser = api.user.get(function(user) {
+	    if(user) {
+		$scope.currentUser = user;
+	    } else {
+		$scope.currentUser = {};
+	    }
+	});
     })
 
     .controller("projectsController", function($scope, $http, api) {
@@ -44,4 +53,21 @@ angular.module('apeAppControllers', [])
 	    // Perform the DELETE
 	    $http.delete(projectDeleteEndpoint).success(refreshProjects);
 	};
+    })
+
+    .controller("loginController", function($scope, $http) {
+	$scope.userLogin = function() {
+	    var username = $scope.loginState.username;
+	    var password = $scope.loginState.password;
+	    var loginEndpoint = '/users/login';
+	    var data = { username: username, password: password };
+	    $http.post(loginEndpoint, data);
+	};
+    })
+
+    .controller("logoutController", function($scope, api) {
+	api.logout.get(function(data) {
+	    console.log("Successfully logged out");
+	});
+	$scope.message = "Logging out ...";
     });

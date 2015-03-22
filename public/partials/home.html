@@ -2,6 +2,9 @@
 
 <div class="pure-g" ng-controller="homeController">
     <div class="pure-u-1">
+	{{ currentUser.username || '' }}
+    </div>
+    <div class="pure-u-1">
         Current time: {{ time }}
     </div>
     <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
