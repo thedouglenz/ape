@@ -12,9 +12,11 @@
     <script type="text/javascript" src="javascripts/app.js"></script>
     <script type="text/javascript" src="javascripts/controllers.js"></script>
     <script type="text/javascript" src="javascripts/api-provider.js"></script>
+    <script type="text/javascript" src="javascripts/directives.js"></script>
 
     <!-- purecss.io -->
     <link rel="stylesheet" href="https://yui-s.yahooapis.com/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" href="https://yui-s.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
 
     <!-- FontAwesome -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -27,17 +29,24 @@
 <body>
 <header>
     <div class="pure-g">
-        <div class="pure-u-3-4">
-            <h1><span style="font-size:2em">A</span>ngularJS <span style="font-size:2em">P</span>ostgreSQL <span style="font-size:2em">E</span>xpress</h1>
-	    <img src="assets/browngorilla.png" />
-            <div class="nav">
-		<a href="#/"><i class="fa fa-home"></i> Home</a>
-                <a href="#/projects"><i class="fa fa-cogs"></i> Projects</a>
-            </div>
+	<!-- Ape logo section -->
+        <div class="pure-u-1">
+	    <img id="logo-img" src="assets/browngorilla.png" />
+            <h1 style="display: inline;"><span style="font-size:2em">A</span>ngularJS <span style="font-size:2em">P</span>ostgreSQL <span style="font-size:2em">E</span>xpress</h1>
+            
         </div>
+
+	<!-- Navigation menu -->
+	<div class="pure-u-1">
+	    <div class="nav">
+		<a ape-menu-selected href="#/"><i class="fa fa-home"></i>Home</a>
+                <a ape-menu-selected href="#/projects"><i class="fa fa-code"></i>Projects</a>
+            </div>
+	</div>
     </div>
 </header>
 
+<!-- Where the partials get inserted -->
 <main ng-view>
 </main>
 

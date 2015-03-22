@@ -30,3 +30,29 @@ html, button, input, select, textarea,
     font-weight: bold;
     color: Purple;
 }
+
+/* Outer container styles */
+.nav a {
+    padding: 0px 5px 0px 5px;
+}
+.menu-selected {
+    border-bottom: 3px solid purple;
+}
+#logo-img {
+    width: 25%;
+    height: 25%;
+}
+
+/* More pure-button colors */
+.pure-button {
+    color:white
+}
+
+.button-red {
+    background-color: red;
+}
+
+/* Projects page styles */
+.project-block {
+    padding:5px;
+}

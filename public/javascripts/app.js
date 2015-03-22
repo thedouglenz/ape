@@ -2,7 +2,7 @@
  * Where the angular excitement begins ...
  */
 
-angular.module("apeApp", ['ngRoute', 'apeAppControllers', 'apeAppAPIProvider'])
+angular.module("apeApp", ['ngRoute', 'apeAppControllers', 'apeAppAPIProvider', 'apeAppDirectives'])
 
     .config(['$routeProvider',
         function($routeProvider) {

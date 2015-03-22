@@ -1,15 +1,17 @@
 <title>Projects</title>
 
 <div class="pure-g">
-    <div class="pure-u-3-4">
-        <div class="project-block" ng-repeat="project in projects">
-            <h3>{{ project.title }}</h3>
-            <p>{{ project.description }}</p>
-	    <p>Created {{ project.createdAt | date }}
-	    <button ng-click="deleteProject(project.id)"><i class="fa fa-trash-o"></i></button></p>
+    <div class="pure-u-1">
+        <div class="pure-u-md-1-2 pure-u-lg-1-4" ng-repeat="project in projects">
+	    <div class="project-block">
+		<h3>{{ project.title }}</h3>
+            	<p>{{ project.description }}</p>
+	    	<p>Created {{ project.createdAt | date }}
+	    	<button class="pure-button button-red" ng-click="deleteProject(project.id)"><i class="fa fa-trash-o"></i></button></p>
+	    </div>
         </div>
     </div>
-    <div class="pure-u-3-4">
+    <div class="pure-u-1">
 	<div id="projects-form">
 	    <form novalidate class="pure-form pure-form-stacked" method="POST">
 		<fieldset>
