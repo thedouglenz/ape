@@ -35,4 +35,12 @@ router.post('/projects', function(req, res, next) {
     });
 });
 
+router.delete('/projects/delete/:id', function(req, res, next) {
+    var Project = getProjectModel();
+    var deleteId = req.params.id;
+    var where = { id: deleteId }
+    Project.destroy({where:where}).success(function(_) {
+	res.send(200);
+    });
+});
 module.exports = router;

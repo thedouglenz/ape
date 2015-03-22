@@ -36,4 +36,12 @@ angular.module('apeAppControllers', [])
 	    // Perform the POST
 	    $http.post(projectPostEndpoint, data).success(refreshProjects);
 	};
+
+	$scope.deleteProject = function(projectId) {
+	    // Prepare the DELETE information
+	    var projectDeleteEndpoint = "/api/projects/delete/" + projectId;
+
+	    // Perform the DELETE
+	    $http.delete(projectDeleteEndpoint).success(refreshProjects);
+	};
     });
