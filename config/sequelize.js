@@ -14,7 +14,7 @@ if(typeof process.env.DATABASE_URL !== 'undefined') {
     database_url = process.env.DATABASE_URL;
 }
 
-var sequelize = new Sequelize(pgconfig['url'], {
+var sequelize = new Sequelize(database_url, {
     dialect: 'postgres',
     logging: console.log
 });
