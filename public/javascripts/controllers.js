@@ -17,7 +17,6 @@ angular.module('apeAppControllers', [])
 
     .controller("projectsController", function($scope, $http, api) {
 	var refreshProjects = function() {
-	    console.log("Refreshing projects...");
 	    api.projects.query(function(data) {
                 $scope.projects = data;
             });
