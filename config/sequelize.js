@@ -8,6 +8,12 @@
 var Sequelize = require('sequelize');
 var pgconfig = require('./pgconfig.json');
 
+var database_url = pgconfig['url'];
+
+if(typeof process.env.DATABASE_URL !== 'undefined') {
+    database_url = process.env.DATABASE_URL;
+}
+
 var sequelize = new Sequelize(pgconfig['url'], {
     dialect: 'postgres',
     logging: console.log
