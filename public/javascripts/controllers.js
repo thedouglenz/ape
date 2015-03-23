@@ -2,6 +2,10 @@
 /*
  * apeApp controllers
  */
+
+// TODO: create a controller for the outer portion of the view
+//	 so that the nav can show/hide login/logout buttons
+//	 depending on if a user is logged in
 angular.module('apeAppControllers', [])
 
     .controller("homeController", function($scope, api) {
@@ -55,19 +59,28 @@ angular.module('apeAppControllers', [])
 	};
     })
 
-    .controller("loginController", function($scope, $http) {
+    .controller("loginController", function($scope, $http, $location) {
 	$scope.userLogin = function() {
 	    var username = $scope.loginState.username;
 	    var password = $scope.loginState.password;
 	    var loginEndpoint = '/users/login';
 	    var data = { username: username, password: password };
-	    $http.post(loginEndpoint, data);
+	    $http.post(loginEndpoint, data).success(function(data, status, headers, config) {
+		// console.log(status);
+		$scope.loginState = {};
+		$location.path('/');
+	    }).error(function(data, status, headers, config) {
+		// console.log(status);
+		$location.path('/login');
+		$scope.loginState = {};
+		$scope.loginState.error = "Invalid username or password";
+	    });
 	};
     })
 
-    .controller("logoutController", function($scope, api) {
+    .controller("logoutController", function($scope, $location, api) {
 	api.logout.get(function(data) {
-	    console.log("Successfully logged out");
+	    $location.path('/');
 	});
 	$scope.message = "Logging out ...";
     });

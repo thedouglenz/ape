@@ -13,18 +13,18 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/login', passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/users/login' }));
+    successRedirect: '/' }));
 
 router.get('/logout', function(req, res, next) {
     req.logout();
-    res.redirect('/');
+    res.send(200);
 });
 
 router.get('/me', function(req, res, next) {
     var User = require('../models/user').User;
     User.findOne(req.user).then(function(user) {
 	res.json(user);
+	// TODO: return something else if the user isn't logged in
     });
 });
 
