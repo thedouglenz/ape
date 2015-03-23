@@ -35,6 +35,13 @@ html, button, input, select, textarea,
 .nav a {
     padding: 0px 5px 0px 5px;
 }
+.nav a:hover {
+    text-shadow: 2px 1px 28px rgba(255, 0, 255, 1);
+}
+.nav i {
+    padding-right: 5px;
+    padding-left: 10px;
+}
 .menu-selected {
     border-bottom: 3px solid purple;
 }
