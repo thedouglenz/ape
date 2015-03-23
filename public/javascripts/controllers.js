@@ -8,6 +8,20 @@
 //	 depending on if a user is logged in
 angular.module('apeAppControllers', [])
 
+    .controller("mainController", function($scope, api) {
+	// Get the current user
+	$scope.loggedIn = false;
+	var currentUser = api.user.get(function(user) {
+	    if(user) {
+		$scope.currentUser = user;
+		$scope.loggedIn = true;
+	    } else {
+		$scope.currentUser = {};
+		$scope.loggedIn = false;
+	    }
+	});
+    })
+
     .controller("homeController", function($scope, api) {
         $scope.time = Date();
         var updateTime = function() {
@@ -17,15 +31,6 @@ angular.module('apeAppControllers', [])
             $scope.$apply(updateTime);
         }, 1000);
         updateTime();
-
-	// Get the current user
-	var currentUser = api.user.get(function(user) {
-	    if(user) {
-		$scope.currentUser = user;
-	    } else {
-		$scope.currentUser = {};
-	    }
-	});
     })
 
     .controller("projectsController", function($scope, $http, api) {

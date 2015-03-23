@@ -28,7 +28,7 @@
 
 <body>
 <header>
-    <div class="pure-g">
+    <div class="pure-g" ng-controller="mainController">
 	<!-- Ape logo section -->
         <div class="pure-u-1">
 	    <img id="logo-img" src="assets/browngorilla.png" />
@@ -40,8 +40,9 @@
 	    <div class="nav">
 		<a ape-menu-selected href="#/"><i class="fa fa-home"></i>Home</a>
                 <a ape-menu-selected href="#/projects"><i class="fa fa-code"></i>Projects</a>
-		<a ape-menu-selected href="#/login"><i class="fa fa-unlock"></i>Login</a>
-		<a href="#/logout"><i class="fa fa-sign-out"></i>Logout</a>
+		<a href="#">{{ currentUser.username || '' }}</a>
+		<a ng-show="loggedIn" ng-hide="!loggedIn" ape-menu-selected href="#/login"><i class="fa fa-unlock"></i>Login</a>
+		<a ng-show="!loggedIn" ng-hide="loggedIn" href="#/logout"><i class="fa fa-sign-out"></i>Logout</a>
             </div>
 	</div>
     </div>
