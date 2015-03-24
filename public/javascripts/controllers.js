@@ -8,18 +8,23 @@
 //	 depending on if a user is logged in
 angular.module('apeAppControllers', [])
 
-    .controller("mainController", function($scope, api) {
-	// Get the current user
+    .controller("mainController", function($rootScope, $scope, api) {
 	$scope.loggedIn = false;
-	var currentUser = api.user.get(function(user) {
-	    if(user) {
-		$scope.currentUser = user;
-		$scope.loggedIn = true;
-	    } else {
-		$scope.currentUser = {};
-		$scope.loggedIn = false;
-	    }
+	$rootScope.$on('$routeChangeStart', function(event, current, previous, rejection) {
+	    var currentUser = api.user.get(function(user) {
+		var userData = user.toJSON();
+	    	if(!user.status == "error") {
+		    console.log("No error finding current user");
+	    	    $scope.currentUser = user;
+	    	    $scope.loggedIn = true;
+	    	} else {
+		    console.log("Error finding current user");
+	    	    $scope.currentUser = {};
+	    	    $scope.loggedIn = false;
+	    	}
+	    });
 	});
+
     })
 
     .controller("homeController", function($scope, api) {
