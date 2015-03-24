@@ -13,12 +13,10 @@ angular.module('apeAppControllers', [])
 	$rootScope.$on('$routeChangeStart', function(event, current, previous, rejection) {
 	    var currentUser = api.user.get(function(user) {
 		var userData = user.toJSON();
-	    	if(!user.status == "error") {
-		    console.log("No error finding current user");
+	    	if(userData.status != "error") {
 	    	    $scope.currentUser = user;
 	    	    $scope.loggedIn = true;
 	    	} else {
-		    console.log("Error finding current user");
 	    	    $scope.currentUser = {};
 	    	    $scope.loggedIn = false;
 	    	}

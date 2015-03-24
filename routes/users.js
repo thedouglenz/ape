@@ -23,8 +23,7 @@ router.get('/logout', function(req, res, next) {
 router.get('/me', function(req, res, next) {
     var User = require('../models/user').User;
     User.findOne(req.user).then(function(user) {
-	if(user) {
-	    console.log(user.toJSON());
+	if(user !== null) {
 	    res.json(user.toJSON());
 	} else {
 	    res.json({ status: "error", error: "User not logged in"});
