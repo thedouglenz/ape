@@ -21,5 +21,9 @@ angular.module("apeApp", ['ngRoute', 'apeAppControllers', 'apeAppAPIProvider', '
 	    .when('/logout', {
 		templateUrl: '../partials/logout.html',
 		controller: 'logoutController'
+	    })
+	    .when('/register', {
+		templateUrl: '../partials/register.html',
+		controller: 'registerController'
 	    });
         }]);

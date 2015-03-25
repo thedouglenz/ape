@@ -86,6 +86,40 @@ angular.module('apeAppControllers', [])
 	};
     })
 
+    .controller("registerController", function($scope, $http, $location) {
+	var passMatch = false;
+	$scope.registerUser = function() {
+	    if(passMatch) {
+		var registerEndpoint = "/users/register";
+		var data = {
+		    email: $scope.registerState.email,
+		    username: $scope.registerState.username,
+		    password: $scope.registerState.password
+		};
+		console.log(data);
+		$http.post(registerEndpoint, data).success(function(data, status, headers, config) {
+		    $scope.registerState = {};
+		    $location.path=('/login');
+		}).error(function(data, status, error, config) {
+		    $scope.registerState = {};
+		    $scope.registerState.error = "There was an error. An account may already exist with this username or email address.";
+		});
+	    }
+	};
+
+	$scope.validatePasswords = function() {
+	    var a = $scope.registerState.password;
+	    var b = $scope.registerState.reEnterPassword;
+	    if(a !== b) {
+		passMatch = false;
+		$scope.registerState.error = "Passwords do not match!";
+	    } else {
+		passMatch = true;
+		$scope.registerState.error = "";
+	    }
+	};
+    })
+
     .controller("logoutController", function($scope, $location, api) {
 	api.logout.get(function(data) {
 	    $location.path('/');

@@ -54,9 +54,11 @@ html, button, input, select, textarea,
 .pure-button {
     color:white
 }
-
 .button-red {
     background-color: red;
+}
+.button-green {
+    background-color: green;
 }
 
 /* Projects page styles */

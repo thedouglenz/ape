@@ -5,6 +5,11 @@
 var express = require('express');
 var router = express.Router();
 
+var usersModel = '../models/user';
+var getUserModel = function() {
+    return require(usersModel).User;
+}
+
 var passport = require('../config/passport/passport').passport;
 
 /* GET users listing. */
@@ -18,6 +23,22 @@ router.post('/login', passport.authenticate('local', {
 router.get('/logout', function(req, res, next) {
     req.logout();
     res.send(200);
+});
+
+router.post('/register', function(req, res, next) {
+    var User = getUserModel();
+    var data = {
+	email: req.body.email,
+	username: req.body.username,
+	hash: req.body.password,
+	salt: "salt"
+    };
+    User.create(data).success(function(user) {
+	console.log("Successfully created user");
+	res.sendStatus(200);
+    }).error(function(err) {
+	console.log(err);
+    });
 });
 
 router.get('/me', function(req, res, next) {
