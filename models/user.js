@@ -39,6 +39,7 @@ var User = sqlz.db.define('user', {
 }, {
     instanceMethods: {
 	validatePassword: function(password) {
+	    console.log(this.hash + "/" + password);
 	    return this.hash == password;
 	}
     }

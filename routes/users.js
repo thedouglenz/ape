@@ -44,13 +44,18 @@ router.post('/register', function(req, res, next) {
 
 router.get('/me', function(req, res, next) {
     var User = require('../models/user').User;
-    User.findOne(req.user).then(function(user) {
-	if(user !== null) {
-	    res.json(user.toJSON());
-	} else {
-	    res.json({ status: "error", error: "User not logged in"});
-	}
-    });
+    var currentUser = req.user;
+    if(typeof currentUser !== 'undefined') {
+	User.find(req.user.id).then(function(user) {
+    	    if(user !== null) {
+    	        res.json(user.toJSON());
+    	    } else {
+    	        res.json({});
+    	    }
+    	});
+    } else {
+	res.json({});
+    }
 });
 
 module.exports = router;
