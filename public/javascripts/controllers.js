@@ -96,10 +96,9 @@ angular.module('apeAppControllers', [])
 		    username: $scope.registerState.username,
 		    password: $scope.registerState.password
 		};
-		console.log(data);
 		$http.post(registerEndpoint, data).success(function(data, status, headers, config) {
 		    $scope.registerState = {};
-		    $location.path=('/login');
+		    $location.path('/login');
 		}).error(function(data, status, error, config) {
 		    $scope.registerState = {};
 		    $scope.registerState.error = "There was an error. An account may already exist with this username or email address.";
@@ -110,12 +109,14 @@ angular.module('apeAppControllers', [])
 	$scope.validatePasswords = function() {
 	    var a = $scope.registerState.password;
 	    var b = $scope.registerState.reEnterPassword;
-	    if(a !== b) {
-		passMatch = false;
-		$scope.registerState.error = "Passwords do not match!";
-	    } else {
-		passMatch = true;
-		$scope.registerState.error = "";
+	    if(a && b) {
+		if(a !== b) {
+	    	    passMatch = false;
+	    	    $scope.registerState.error = "Passwords do not match!";
+	    	} else {
+	    	    passMatch = true;
+	    	    $scope.registerState.error = "";
+	    	}
 	    }
 	};
     })

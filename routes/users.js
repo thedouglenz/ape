@@ -38,6 +38,7 @@ router.post('/register', function(req, res, next) {
 	res.sendStatus(200);
     }).error(function(err) {
 	console.log(err);
+	res.sendStatus(500);
     });
 });
 
