@@ -5,7 +5,7 @@
 	<form novalidate class="pure-form pure-form-stacked" method="POST">
 	    <fieldset>
 		<legend>Register a new account</legend>
-		<input type="text" placeholder="Email Address" name="email" ng-model="registerState.email" required/>
+		<input type="email" placeholder="Email Address" name="email" ng-model="registerState.email" required/>
 		<input type="text" placeholder="Username" name="username" ng-model="registerState.username" required/>
 		<input type="password" placeholder="Password" name="password" ng-model="registerState.password" ng-change="validatePasswords()" required/>
 		<input type="password" placeholder="Re-enter password" name="reEnterPassword" ng-model="registerState.reEnterPassword" ng-change="validatePasswords()" required/>
