@@ -2,49 +2,47 @@
  * The users model
  */
 
-var sqlz = require('../config/sequelize');
+module.exports = function() {
+    var sqlz = require('../config/sequelize');
 
-var User = sqlz.db.define('user', {
-    id: {
-	type: sqlz.Sequelize.INTEGER,
+    return sqlz.db.define('user', {
+	id: {
+	    type: sqlz.Sequelize.INTEGER,
 	primaryKey: true,
 	autoIncrement: true
-    },
-    email: {
-	type: sqlz.Sequelize.STRING,
+	},
+	email: {
+	    type: sqlz.Sequelize.STRING,
 	unique: true,
 	allowNull: false,
 	validate: {
 	    isEmail: true
 	}
-    },
-    username: {
-	type: sqlz.Sequelize.STRING,
+	},
+	username: {
+	    type: sqlz.Sequelize.STRING,
 	unique: true,
 	allowNull: false,
 	validate: {
 	    isAlphanumeric: true,
-	    notEmpty: true,
-	    len: [2, 255]
+	notEmpty: true,
+	len: [2, 255]
 	}
-    },
-    hash: {
-	type: sqlz.Sequelize.STRING,
-	allowNull: false
-    },
-    salt: {
-	type: sqlz.Sequelize.STRING,
-	allowNull: false
-    }
-}, {
-    instanceMethods: {
-	validatePassword: function(password) {
-	    console.log(this.hash + "/" + password);
-	    return this.hash == password;
+	},
+	hash: {
+	    type: sqlz.Sequelize.STRING,
+	    allowNull: false
+	},
+	salt: {
+	    type: sqlz.Sequelize.STRING,
+	    allowNull: false
 	}
-    }
-});
-
-module.exports = {
-    User: User
-}
+    }, {
+	instanceMethods: {
+	    validatePassword: function(password) {
+		console.log(this.hash + "/" + password);
+		return this.hash == password;
+	    }
+	}
+    });
+};

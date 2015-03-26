@@ -11,13 +11,11 @@ var express = require('express');
 var router = express.Router();
 
 var projectsModel = '../models/project';
-var getProjectModel = function() {
-    return require(projectsModel).Project;
-}
+var getProjectModel = require(projectsModel);
 
 /* The projects API */
 router.get('/projects', function(req, res, next) {
-    var Project = require('../models/project').Project;
+    var Project = getProjectModel();
     Project.findAll().success(function(result) {
         res.json(result);
     });

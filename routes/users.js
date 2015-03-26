@@ -6,9 +6,7 @@ var express = require('express');
 var router = express.Router();
 
 var usersModel = '../models/user';
-var getUserModel = function() {
-    return require(usersModel).User;
-}
+var getUserModel = require(usersModel);
 
 var passport = require('../config/passport/passport').passport;
 
@@ -43,7 +41,7 @@ router.post('/register', function(req, res, next) {
 });
 
 router.get('/me', function(req, res, next) {
-    var User = require('../models/user').User;
+    var User = getUserModel();
     var currentUser = req.user;
     if(typeof currentUser !== 'undefined') {
 	User.find(req.user.id).then(function(user) {

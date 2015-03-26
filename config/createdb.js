@@ -13,8 +13,12 @@ var Project = require('../models/project').Project;
 var User = require('../models/user').User;
 
 // Create each of their tables
-Project.sync({force:true});
-User.sync({force:true});
+// Project.sync({force:true});
+// User.sync({force:true});
 
+// List the associations
+Project.belongsTo(User);
+User.hasMany(Project);
 
-// TODO: This just in - we can use sqlz.sync(), sqlz.drop(), etc. to handle ALL tables
+// Sync the associations
+sqlz.db.sync();
