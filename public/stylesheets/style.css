@@ -24,6 +24,7 @@ html, button, input, select, textarea,
     padding-top: 20px;
 }
 
+/* Home styles */
 .home-desc {
     font-size:1.2em;
 }
@@ -31,6 +32,11 @@ html, button, input, select, textarea,
 .home-desc a {
     font-weight: bold;
     color: Purple;
+}
+
+#subtitle {
+    font-size: 1.5em;
+    color: #555555;
 }
 
 /* Outer container styles */
