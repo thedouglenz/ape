@@ -1,4 +1,6 @@
 body {
+  background-color: #151515;
+  color: #bbb;
   padding: 50px;
   font: 14px Courier;
 }
@@ -71,4 +73,25 @@ html, button, input, select, textarea,
     -webkit-box-shadow: 5px 5px 8px 5px rgba(0,0,0,0.38);
     -moz-box-shadow: 5px 5px 8px 5px rgba(0,0,0,0.38);
     box-shadow: 5px 5px 8px 5px rgba(0,0,0,0.38);
+}
+
+/* Form styles */
+form input, textarea {
+    color: #000;
+    font-size: 1.25em;
+}
+::-webkit-input-placeholder {
+    color: purple;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: purple;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    color: purple;  
+}
+
+:-ms-input-placeholder {  
+    color: purple;  
 }

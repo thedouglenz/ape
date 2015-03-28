@@ -4,10 +4,9 @@
     <div class="pure-u-1">
         <div class="pure-u-md-1-2 pure-u-lg-1-4" ng-repeat="project in projects">
 	    <div class="project-block">
-		<h3>{{ project.title }}</h3>
-            	<p>{{ project.description }}</p>
-	    	<p>Created {{ project.createdAt | date }}
-	    	<button class="pure-button button-red" ng-click="deleteProject(project.id)"><i class="fa fa-trash-o"></i></button></p>
+		<h3>{{ project.title }} <small>{{ project.createdAt | date }}</small></h3>
+		<p>{{ project.description }}</p>
+	    	<button class="pure-button button-red" ng-click="deleteProject(project.id)"><i class="fa fa-trash-o"></i></button>
 	    </div>
         </div>
     </div>

@@ -1,9 +1,12 @@
 <title>Login</title>
 
 <form novalidate class="pure-form">
-    <input type="text" placeholder="username" name="username" ng-model="loginState.username" required/>
-    <input type="password" placeholder="password" name="password" ng-model="loginState.password" required/>
-    <button type="submit" class="pure-button pure-button-primary" ng-click="userLogin()">Login</button>
+    <fieldset>
+	<legend> Login </legend>
+	<input type="text" placeholder="username" name="username" ng-model="loginState.username" required/>
+    	<input type="password" placeholder="password" name="password" ng-model="loginState.password" required/>
+    	<button type="submit" class="pure-button pure-button-primary" ng-click="userLogin()">Login</button>
+    </fieldset>
 </form>
 <div class="pure-g">
     <div class="pure-u-1">
