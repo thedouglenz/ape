@@ -95,3 +95,11 @@ form input, textarea {
 :-ms-input-placeholder {  
     color: purple;  
 }
+
+/* Code samples */
+code {
+    font-family: Courier, Monospace, sans-serif;
+    padding: 10px;
+    display: block;
+    background-color: #000;
+}
