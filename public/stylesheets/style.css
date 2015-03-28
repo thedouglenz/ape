@@ -74,13 +74,6 @@ html, button, input, select, textarea,
     padding:5px;
 }
 
-/* github card style */
-#github-card {
-    -webkit-box-shadow: 5px 5px 8px 5px rgba(0,0,0,0.38);
-    -moz-box-shadow: 5px 5px 8px 5px rgba(0,0,0,0.38);
-    box-shadow: 5px 5px 8px 5px rgba(0,0,0,0.38);
-}
-
 /* Form styles */
 form input, textarea {
     color: #000;
