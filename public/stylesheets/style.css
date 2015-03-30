@@ -34,6 +34,11 @@ html, button, input, select, textarea,
     color: Purple;
 }
 
+.centered {
+    margin-right: auto;
+    margin-left: auto;
+}
+
 #subtitle {
     font-size: 1.5em;
     color: #555555;
