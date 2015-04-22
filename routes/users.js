@@ -14,7 +14,7 @@ var passport = require('../config/passport/passport').passport;
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+    res.send('respond with a resource');
 });
 
 router.post('/login', passport.authenticate('local', {
@@ -28,17 +28,17 @@ router.get('/logout', function(req, res, next) {
 router.post('/register', function(req, res, next) {
     var User = getUserModel();
     var data = {
-	email: req.body.email,
-	username: req.body.username,
-	hash: req.body.password,
-	salt: "salt"
+        email: req.body.email,
+        username: req.body.username,
+        hash: req.body.password,
+        salt: "salt"
     };
     User.create(data).success(function(user) {
-	console.log("Successfully created user");
-	res.sendStatus(200);
+        console.log("Successfully created user");
+        res.sendStatus(200);
     }).error(function(err) {
-	console.log(err);
-	res.sendStatus(500);
+        console.log(err);
+        res.sendStatus(500);
     });
 });
 
@@ -46,15 +46,15 @@ router.get('/me', function(req, res, next) {
     var User = require('../models/user').User;
     var currentUser = req.user;
     if(typeof currentUser !== 'undefined') {
-	User.find(req.user.id).then(function(user) {
-    	    if(user !== null) {
-    	        res.json(user.toJSON());
-    	    } else {
-    	        res.json({});
-    	    }
-    	});
+        User.find(req.user.id).then(function(user) {
+            if(user !== null) {
+                res.json(user.toJSON());
+            } else {
+                res.json({});
+            }
+        });
     } else {
-	res.json({});
+        res.json({});
     }
 });
 
