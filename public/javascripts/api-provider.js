@@ -5,7 +5,7 @@ angular.module('apeAppAPIProvider', ['ngResource'])
 
         this.$get = function apiFactory($resource) {
             var api = {};
-            api.projects = $resource(apiUrlPrefix + "/projects");
+            api.posts = $resource(apiUrlPrefix + "/posts");
 
 	    api.user = $resource(usersPrefix + "/me");
 	    api.logout = $resource(usersPrefix + "/logout");

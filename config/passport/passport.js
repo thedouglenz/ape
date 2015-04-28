@@ -8,18 +8,19 @@ var passport = require('passport'),
 var User = require('../../models/user').User;
 
 passport.use(new LocalStrategy(
-    function(username, password, done) {
-	User.find({ where: { username: username }}).then(function(user) {
-	    if(!user) {
-		return done(null, false, { message: 'Incorrect username.' });
-	    }
-	    if (!user.validatePassword(password)) {
-		return done(null, false, { message: 'Incorrect password.' });
-	    }
-	    return done(null, user);
-	});
-    })
-);
+            function(username, password, done) {
+                var errMessage = 'Invalid username or password';
+                User.find({ where: { username: username }}).then(function(user) {
+                    if(!user) {
+                        return done(null, false, { message: errMessage });
+                    }
+                    if (!user.validatePassword(password)) {
+                        return done(null, false, { message: errMessage });
+                    }
+                    return done(null, user);
+                });
+            })
+        );
 
 passport.serializeUser(function(user, done) {
     done(null, user.id);
@@ -27,7 +28,7 @@ passport.serializeUser(function(user, done) {
 
 passport.deserializeUser(function(id, done) {
     User.findOne(id).then(function(user) {
-	done(null, user);
+        done(null, user);
     });
 });
 

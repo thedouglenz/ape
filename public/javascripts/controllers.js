@@ -36,34 +36,34 @@ angular.module('apeAppControllers', [])
         updateTime();
     })
 
-    .controller("projectsController", function($scope, $http, api) {
-	var refreshProjects = function() {
-	    api.projects.query(function(data) {
-                $scope.projects = data;
+    .controller("postsController", function($scope, $http, api) {
+	var refreshPosts = function() {
+	    api.posts.query(function(data) {
+                $scope.posts = data;
             });
-	}; refreshProjects();
+	}; refreshPosts();
 
-	$scope.addProject = function() {
+	$scope.addPost = function() {
 	    // Prepare the POST information
-	    var projectPostEndpoint = "/api/projects";
+	    var postPostEndpoint = "/api/posts";
 	    var data = {
-		title : $scope.project_state.title,
-		description: $scope.project_state.description
+            title : $scope.post_state.title,
+            description: $scope.post_state.description
 	    };
 
-	    // Clear the project_state object (and thus the form fields)
-	    $scope.project_state = {};
+	    // Clear the post_state object (and thus the form fields)
+	    $scope.post_state = {};
 
 	    // Perform the POST
-	    $http.post(projectPostEndpoint, data).success(refreshProjects);
+	    $http.post(postPostEndpoint, data).success(refreshPosts);
 	};
 
-	$scope.deleteProject = function(projectId) {
+	$scope.deletePost = function(postId) {
 	    // Prepare the DELETE information
-	    var projectDeleteEndpoint = "/api/projects/delete/" + projectId;
+	    var postDeleteEndpoint = "/api/posts/delete/" + postId;
 
 	    // Perform the DELETE
-	    $http.delete(projectDeleteEndpoint).success(refreshProjects);
+	    $http.delete(postDeleteEndpoint).success(refreshPosts);
 	};
     })
 

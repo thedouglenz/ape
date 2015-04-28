@@ -1,0 +1,26 @@
+<title>Posts</title>
+
+<div class="pure-g">
+    <div class="pure-u-1">
+        <div class="pure-u-md-1-2 pure-u-lg-1-4" ng-repeat="post in posts">
+	    <div class="post-block">
+		<h3>{{ post.title }} <small>{{ post.createdAt | date }}</small></h3>
+		<p>{{ post.description }}</p>
+	    	<button class="pure-button button-red" ng-click="deletePost(post.id)"><i class="fa fa-trash-o"></i></button>
+	    </div>
+        </div>
+    </div>
+    <div class="pure-u-1">
+	<div id="posts-form">
+	    <form novalidate class="pure-form pure-form-stacked" method="POST">
+		<fieldset>
+		    <legend> Add a post </legend>
+		    <input type="text" placeholder="Title" ng-model="post_state.title" required>
+		    <textarea placeholder="Description" ng-model="post_state.description" required></textarea>
+		    <button type="submit" class="pure-button pure-button-primary"
+			ng-click="addPost()"><i class="fa fa-plus"></i> Add post</button>
+		</fieldset>
+	    </form>
+	</div>
+    </div>
+</div>

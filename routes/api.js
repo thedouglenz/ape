@@ -10,37 +10,37 @@
 var express = require('express');
 var router = express.Router();
 
-var projectsModel = '../models/project';
-var getProjectModel = function() {
-    return require(projectsModel).Project;
+var postsModel = '../models/post';
+var getPostModel = function() {
+    return require(postsModel).Post;
 }
 
-/* The projects API */
-router.get('/projects', function(req, res, next) {
-    var Project = require('../models/project').Project;
-    Project.findAll().success(function(result) {
+/* The posts API */
+router.get('/posts', function(req, res, next) {
+    var Post = require('../models/post').Post;
+    Post.findAll().success(function(result) {
         res.json(result);
     });
 });
 
-router.post('/projects', function(req, res, next) {
-    var Project = getProjectModel();
+router.post('/posts', function(req, res, next) {
+    var Post = getPostModel();
     var data = {
-	title: req.body.title,
-	description: req.body.description
+        title: req.body.title,
+        description: req.body.description
     };
-    Project.create(data).success(function(project) {
-	console.log("Successfully created project");
-	res.send(200);
+    Post.create(data).success(function(post) {
+        console.log("Successfully created post");
+        res.send(200);
     });
 });
 
-router.delete('/projects/delete/:id', function(req, res, next) {
-    var Project = getProjectModel();
+router.delete('/posts/delete/:id', function(req, res, next) {
+    var Post = getPostModel();
     var deleteId = req.params.id;
     var where = { id: deleteId }
-    Project.destroy({where:where}).success(function(_) {
-	res.send(200);
+    Post.destroy({where:where}).success(function(_) {
+	    res.send(200);
     });
 });
 module.exports = router;

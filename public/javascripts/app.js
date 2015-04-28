@@ -10,9 +10,9 @@ angular.module("apeApp", ['ngRoute', 'apeAppControllers', 'apeAppAPIProvider', '
                 templateUrl: '../partials/home.html',
                 controller: 'homeController'
             })
-            .when('/projects', {
-                templateUrl: '../partials/projects.html',
-                controller: 'projectsController'
+            .when('/posts', {
+                templateUrl: '../partials/posts.html',
+                controller: 'postsController'
             })
 	    .when('/login', {
 		templateUrl: '../partials/login.html',
