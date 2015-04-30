@@ -4,6 +4,8 @@
 
 var sqlz = require('../config/sequelize');
 
+var Post = require('./post').Post;
+
 var User = sqlz.db.define('user', {
     id: {
         type: sqlz.Sequelize.INTEGER,
@@ -44,6 +46,9 @@ var User = sqlz.db.define('user', {
         }
     }
 });
+
+// List this model's associations
+User.hasMany(Post);
 
 module.exports = {
     User: User

@@ -13,9 +13,6 @@ var sqlz = require('./sequelize');
 var Post = require('../models/post').Post;
 var User = require('../models/user').User;
 
-// List model associations
-User.hasMany(Post);
-
 sqlz.db.sync({force: true});
 
 // TODO: This just in - we can use sqlz.sync(), sqlz.drop(), etc. to handle ALL tables

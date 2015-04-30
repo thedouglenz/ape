@@ -18,16 +18,21 @@ var getPostModel = function() {
 /* The posts API */
 router.get('/posts', function(req, res, next) {
     var Post = require('../models/post').Post;
-    Post.findAll().success(function(result) {
-        res.json(result);
-    });
+    var currentUser = req.user;
+    if(typeof currentUser !== 'undefined') {
+        Post.findAll({where: {userId: currentUser.id}}).success(function(result) {
+            console.log(JSON.stringify(result));
+            res.json(result);
+        });
+    }
 });
 
 router.post('/posts', function(req, res, next) {
     var Post = getPostModel();
     var data = {
         title: req.body.title,
-        description: req.body.description
+        description: req.body.description,
+        userId: req.user.id
     };
     Post.create(data).success(function(post) {
         console.log("Successfully created post");
